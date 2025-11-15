@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teto Simple Movie Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="bg-stripes">
+    <div class="page">
+
+        <header class="header fade-in">
+            <h1 class="logo">Teto Simple Movie Recommendation</h1>
+            <p class="subtitle">Find movies similar to your favorite one using MovieLens 20M.</p>
+        </header>
+
+        <section class="form-section fade-in">
+            <form method="POST" class="search-form">
+                <label for="movie_name">Type a movie name:</label>
+                <input type="text" id="movie_name" name="movie_name"
+                       placeholder="e.g. Avatar, Interstellar, Toy Story">
+                <button type="submit" class="btn-glow">Recommend</button>
+            </form>
+
+            {% if error %}
+                <div class="message error">{{ error }}</div>
+            {% endif %}
+        </section>
+
+        {% if recommendations %}
+            <section class="results fade-slow">
+                <h2 class="results-title">
+                    Movies Similar To: <span>{{ movie_searched }}</span>
+                </h2>
+
+                <div class="card-grid">
+                    {% for movie in recommendations %}
+                        <div class="card slide-up">
+
+                            <h3 class="movie-title">{{ movie.title }}</h3>
+
+                            <div class="genre-tags">
+                                {% for g in movie.genres.split('|') %}
+                                    {% if g %}
+                                        <span class="tag">{{ g }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                            <p class="info">
+                                Average Rating:
+                                <strong>{{ "%.2f"|format(movie.avg_rating) }}</strong>
+                            </p>
+
+                            <p class="info">
+                                Rating Count:
+                                <strong>{{ movie.num_ratings }}</strong>
+                            </p>
+
+                            <p class="info small">
+                                Similarity Score:
+                                <strong>{{ "%.3f"|format(movie.score) }}</strong>
+                            </p>
+
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+        {% endif %}
+
+        <footer class="footer fade-in">
+            <p>AI Applications · Teto Movie Recommender · MovieLens 20M</p>
+        </footer>
+
+    </div>
+</div>
+</body>
+</html>

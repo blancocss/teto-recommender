@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+    color: #f9fafb;
+    background: #050509;
+}
+
+.bg-stripes {
+    min-height: 100vh;
+    background-image: repeating-linear-gradient(
+        140deg,
+        #050509 0,
+        #050509 16px,
+        #09000f 16px,
+        #09000f 32px
+    );
+}
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.fade-slow {
+    animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+    animation: slideUp 0.7s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo {
+    font-size: 2.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff4d4d, #ffdd55, #ff4d4d);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+    0%   { text-shadow: 0 0 10px rgba(255, 77, 77, 0.3); }
+    50%  { text-shadow: 0 0 22px rgba(255, 77, 77, 0.8); }
+    100% { text-shadow: 0 0 10px rgba(255, 77, 77, 0.3); }
+}
+
+.subtitle {
+    color: #b8b8b8;
+    font-size: 1rem;
+    margin-top: 6px;
+}
+
+.form-section {
+    background: rgba(0,0,0,0.78);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 77, 77, 0.25);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+    margin-bottom: 30px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-form label {
+    font-size: 0.9rem;
+    color: #e5e7eb;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 11px;
+    border-radius: 999px;
+    border: 1px solid #333;
+    background: #020617;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.search-form input:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 8px rgba(255,77,77,0.7);
+}
+
+.btn-glow {
+    padding: 10px 24px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #ff4d4d, #b30000);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255,77,77,0.8);
+    transition: 0.2s;
+}
+
+.btn-glow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,77,77,1);
+}
+
+.message.error {
+    margin-top: 10px;
+    padding: 8px 10px;
+    background: rgba(255,77,77,0.16);
+    border-radius: 10px;
+    color: #ffb3b3;
+}
+
+.results-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.results-title span {
+    color: #ff4d4d;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: radial-gradient(circle at top left, #1a1b2f, #0a0a14);
+    border-radius: 22px;
+    padding: 16px;
+    border: 1px solid rgba(255, 77, 77, 0.18);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8);
+    transition: 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(255, 77, 77, 0.35);
+}
+
+.movie-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.genre-tags {
+    margin: 12px 0 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background: rgba(255,77,77,0.16);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    border: 1px solid rgba(255,77,77,0.28);
+    color: #ffdada;
+    transition: 0.25s;
+}
+
+.tag:hover {
+    transform: scale(1.09);
+    box-shadow: 0 0 12px rgba(255,77,77,0.85);
+}
+
+.info {
+    font-size: 0.9rem;
+    margin: 2px 0;
+}
+
+.info strong {
+    color: #ff4d4d;
+}
+
+.info.small {
+    font-size: 0.8rem;
+    color: #b8b8b8;
+}
+
+.footer {
+    margin-top: 35px;
+    text-align: center;
+    color: #8b8b8b;
+}
